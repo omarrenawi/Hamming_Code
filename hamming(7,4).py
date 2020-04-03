@@ -7,8 +7,6 @@ def mm_encode(source: Generator[bytes, None, None]) -> Generator[bytes, None, No
         h = b[:4]
         l = b[4:]
 
-        assert len(h) == len(l)
-
         for i in [h, l]:
             c3, c5, c6, c7 = int(i[0]), int(i[1]), int(i[2]), int(i[3])
             c1 = str((c3 + c5 + c7) % 2)
