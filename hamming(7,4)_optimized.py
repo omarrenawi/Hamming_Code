@@ -7,8 +7,6 @@ def encode(bits):
     @parm bits: a string of 4 bits to be encoded
     @return: a string of 7 bits (encoding)
     """
-    assert len(bits) == 4
-
     c3, c5, c6, c7 = int(bits[0]), int(bits[1]), int(bits[2]), int(bits[3])
     c1 = str((c3 + c5 + c7) % 2)
     c2 = str((c3 + c6 + c7) % 2)
@@ -23,8 +21,6 @@ def decode(symbol):
     @parm symbol: the symbol to be decoded
     @return: The decoded symbol (With error correction if necessary)
     """
-    assert len(symbol) == 7
-
     c1, c2, c3, c4, c5, c6, c7 = symbol[0], symbol[1], symbol[2], symbol[3], symbol[4], symbol[5], symbol[6]
     s1 = (int(c1) + int(c3) + int(c5) + int(c7)) % 2
     s2 = (int(c2) + int(c3) + int(c6) + int(c7)) % 2
